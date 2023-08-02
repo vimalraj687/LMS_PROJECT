@@ -2,6 +2,7 @@ import express from "express";
 import finalhandler from "finalhandler";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import userRoutes from "./routes/user.routes.js";
 // dotenv
 import { config } from "dotenv";
 import morgan from "morgan";
@@ -21,6 +22,9 @@ app.use(
 app.use(cookieParser());
 // morgan
 app.use(morgan("dev"));
+
+//User Routing
+app.use("/app/v1/user", userRoutes);
 
 // ping
 app.use("/ping", function (req, res) {
